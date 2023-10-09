@@ -15,7 +15,9 @@ import androidx.navigation.compose.rememberNavController
 import com.wamcdevs.habitsappmvvm.navigation.NavigationHost
 import com.wamcdevs.habitsappmvvm.navigation.NavigationRoute
 import com.wamcdevs.habitsappmvvm.ui.theme.HabitsAppMVVMTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     private lateinit var navHostController: NavHostController
@@ -33,7 +35,7 @@ class MainActivity : ComponentActivity() {
 
                     NavigationHost(
                         navHostController = navHostController,
-                        startNavigationRoute = NavigationRoute.OnBoarding
+                        startNavigationRoute = NavigationRoute.Onboarding
                     )
 
                 }

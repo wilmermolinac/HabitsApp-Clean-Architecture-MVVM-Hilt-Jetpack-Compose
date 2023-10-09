@@ -2,7 +2,7 @@ package com.wamcdevs.habitsappmvvm.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val md_theme_light_primary = Color(0xFF8F4E00)
+val md_theme_light_primary = Color(0xFFFDA758)
 val md_theme_light_onPrimary = Color(0xFFFFFFFF)
 val md_theme_light_primaryContainer = Color(0xFFFFDCC1)
 val md_theme_light_onPrimaryContainer = Color(0xFF2E1500)
@@ -33,7 +33,7 @@ val md_theme_light_surfaceTint = Color(0xFF8F4E00)
 val md_theme_light_outlineVariant = Color(0xFFD6C3B6)
 val md_theme_light_scrim = Color(0xFF000000)
 
-val md_theme_dark_primary = Color(0xFFFFB779)
+val md_theme_dark_primary = Color(0xFFFDA758)
 val md_theme_dark_onPrimary = Color(0xFF4C2700)
 val md_theme_dark_primaryContainer = Color(0xFF6C3A00)
 val md_theme_dark_onPrimaryContainer = Color(0xFFFFDCC1)
