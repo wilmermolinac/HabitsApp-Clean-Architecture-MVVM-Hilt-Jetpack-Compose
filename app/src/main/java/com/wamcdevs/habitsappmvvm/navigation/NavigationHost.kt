@@ -19,6 +19,11 @@ fun NavigationHost(navHostController: NavHostController, startNavigationRoute: N
                 OnboardingScreen(onNavigate = navHostController::navigate)
             }
 
+            composable(route = NavigationRoute.Login.route){
+
+                Text(text = "Login")
+            }
+
 
         })
 }

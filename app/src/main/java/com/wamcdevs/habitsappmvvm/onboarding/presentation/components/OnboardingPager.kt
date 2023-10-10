@@ -33,6 +33,7 @@ import androidx.compose.ui.text.style.TextAlign
 import com.google.accompanist.pager.HorizontalPagerIndicator
 import com.wamcdevs.habitsappmvvm.R
 import com.wamcdevs.habitsappmvvm.core.LocalSpacing
+import com.wamcdevs.habitsappmvvm.core.presentation.components.HabitButton
 import com.wamcdevs.habitsappmvvm.core.presentation.components.HabitTitle
 import com.wamcdevs.habitsappmvvm.onboarding.presentation.OnboardingPagerInfo
 import kotlinx.coroutines.launch
@@ -52,19 +53,19 @@ fun OnboardingPager(
     val coroutineScope = rememberCoroutineScope()
 
     Box(
-        modifier = modifier
-            .fillMaxSize()
-            .verticalScroll(state = rememberScrollState())
+        modifier = modifier.fillMaxSize()
+
     ) {
 
-        HorizontalPager(modifier = Modifier.align(Alignment.TopCenter), state = pagerState
+        HorizontalPager(
+            modifier = Modifier.align(Alignment.TopCenter), state = pagerState
         ) { pageIndex: Int ->
 
             val pageInfo = pages.get(pageIndex)
 
             Column(
                 modifier = Modifier
-                    .fillMaxWidth()
+                    .fillMaxSize()
                     .padding(space.spaceMiddleLarge),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
@@ -82,7 +83,8 @@ fun OnboardingPager(
                     modifier = Modifier.aspectRatio(1f),
                     contentScale = ContentScale.FillHeight,
                     painter = painterResource(id = pageInfo.image),
-                    contentDescription = pageInfo.title                )
+                    contentDescription = pageInfo.title
+                )
 
                 Spacer(modifier = Modifier.height(space.spaceMiddleLarge))
 
@@ -115,11 +117,9 @@ fun OnboardingPager(
 
             if (pagerState.currentPage == pages.lastIndex) {
 
-                Button(modifier = Modifier.fillMaxWidth(),
-                    shape = RoundedCornerShape(space.spaceExtraSmall),
-                    onClick = { onFinish() }) {
-                    Text(text = stringResource(id = R.string.button_get_started))
-                }
+                HabitButton(modifier = Modifier.fillMaxWidth(), text = stringResource(id = R.string.button_get_started), onClick = {
+                    onFinish()
+                })
 
             } else {
 

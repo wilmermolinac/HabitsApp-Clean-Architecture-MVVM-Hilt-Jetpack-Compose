@@ -5,11 +5,14 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.wamcdevs.habitsappmvvm.R
+import com.wamcdevs.habitsappmvvm.onboarding.presentation.OnboardingEvent
 import com.wamcdevs.habitsappmvvm.onboarding.presentation.OnboardingPagerInfo
+import com.wamcdevs.habitsappmvvm.onboarding.presentation.OnboardingViewModel
 
 @Composable
-fun OnboardingContent(paddingValues: PaddingValues) {
+fun OnboardingContent(paddingValues: PaddingValues, viewModel: OnboardingViewModel = hiltViewModel()) {
 
     // Cremos la lista de paginas del Onboarding
     val pages = listOf(
@@ -35,5 +38,5 @@ fun OnboardingContent(paddingValues: PaddingValues) {
     OnboardingPager(
         modifier = Modifier.padding(paddingValues = paddingValues),
         pages = pages,
-        onFinish = {})
+        onFinish = {viewModel.onEvent(OnboardingEvent.OnGetStarted)})
 }
