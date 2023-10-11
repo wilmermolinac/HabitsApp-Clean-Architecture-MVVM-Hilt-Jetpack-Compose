@@ -11,9 +11,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun HabitButton(modifier: Modifier = Modifier, text: String, onClick: () -> Unit) {
+fun HabitButton(modifier: Modifier = Modifier, text: String, isEnabled:Boolean = true, onClick: () -> Unit) {
 
-    Button(modifier = modifier, onClick = { onClick() }, shape = RoundedCornerShape(8.dp)) {
+    Button(modifier = modifier, onClick = { onClick() }, shape = RoundedCornerShape(8.dp), enabled = isEnabled) {
         Text(
             text = text,
             style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Bold)
