@@ -6,4 +6,6 @@ sealed class NavigationRoute(val route:String){
     object Onboarding: NavigationRoute( route = "onboarding")
 
     object Login: NavigationRoute(route = "login")
+
+    object Home: NavigationRoute(route = "home")
 }

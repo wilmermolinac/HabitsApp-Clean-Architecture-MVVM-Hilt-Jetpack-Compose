@@ -19,7 +19,15 @@ fun NavController.navigate(event: UiEvent) {
 
                 if (event.route == NavigationRoute.Login.route){
 
-                    // Delete historial of navegation
+                    // Eliminamos el historial de navegacion
+                    popUpTo(graph.id)
+                    {
+                        inclusive = true
+                    }
+                }
+
+                if (event.route == NavigationRoute.Home.route){
+                    // // Eliminamos el historial de navegacion
                     popUpTo(graph.id)
                     {
                         inclusive = true

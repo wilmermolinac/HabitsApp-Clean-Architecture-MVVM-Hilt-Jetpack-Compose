@@ -38,11 +38,11 @@
     <string name="signup_dialog_title">Usuario registrado</string>
     <string name="signup_dialog_subtitle">Ahora ve e inicia sesion!</string>
     <string name="login_dialog_forgotpassword_title">Restaurar contraseña</string>
-    <string name="login_dialog_forgotpassword_subtitle">Ingresa su email para restaurar la contraseña</string>
+    <string name="login_dialog_forgotpassword_subtitle">Ingresa su email:</string>
     <string name="button_confirm">Confirmar</string>
-    <string name="login_dialog_forgotpassword_subtitle2">Una vez presione click en confirmar, revisa su email para restaurar la contraseña</string>
+    <string name="login_dialog_forgotpassword_subtitle2">Una vez presione en confirmar, revisa su email para restaurar la contraseña.</string>
     <string name="button_cancel">Cancelar</string>
-    <string name="message_forgot_password">Revisa el email para restablecer la contraseña</string>
+    <string name="message_forgot_password">Revisa la bandeja de entrada de su email, se envio un mensaje para restablecer la contraseña.</string>
     <string name="description_navigation_icon">Icono del navigation</string>
     <string name="home">Home</string>
     <string name="home_quote_message">WE FIRST MAKE OUR HABITS, AND THEN OUR HABITS MAKES US.</string>

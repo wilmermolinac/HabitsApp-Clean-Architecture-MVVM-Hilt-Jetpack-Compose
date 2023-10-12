@@ -20,9 +20,13 @@ fun NavigationHost(navHostController: NavHostController, startNavigationRoute: N
                 OnboardingScreen(onNavigate = navHostController::navigate)
             }
 
-            composable(route = NavigationRoute.Login.route){
+            composable(route = NavigationRoute.Login.route) {
 
                 LoginScreen(onNavigate = navHostController::navigate)
+            }
+
+            composable(route = NavigationRoute.Home.route) {
+                Text(text = "Home")
             }
 
 

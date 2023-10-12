@@ -21,14 +21,20 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.wamcdevs.habitsappmvvm.R
+import com.wamcdevs.habitsappmvvm.authentication.presentation.login.LoginEvent
+import com.wamcdevs.habitsappmvvm.authentication.presentation.login.LoginViewModel
 import com.wamcdevs.habitsappmvvm.core.LocalSpacing
 import com.wamcdevs.habitsappmvvm.core.presentation.components.HabitTitle
+import com.wamcdevs.habitsappmvvm.core.presentation.components.HabitsProgressBar
 
 @Composable
-fun LoginContent(paddingValues: PaddingValues) {
+fun LoginContent(paddingValues: PaddingValues, viewModel: LoginViewModel = hiltViewModel()) {
 
     val space = LocalSpacing.current
+
+    val state = viewModel.state
 
     Box(
         modifier = Modifier
@@ -80,10 +86,26 @@ fun LoginContent(paddingValues: PaddingValues) {
 
             Spacer(modifier = Modifier.height(space.spaceExtraLargeMax))
 
-            LoginForm()
+            LoginForm(state = state, onEvent = {
+                viewModel.onEvent(it)
+            })
 
 
         }
+
+
+        if (state.isLoading) {
+            HabitsProgressBar()
+        }
+
+        if (state.showForgotDialog) {
+            ForgotPassDialog(state = state, onEvent = {
+                viewModel.onEvent(it)
+            }, onDismissRequest = {
+                viewModel.onEvent(LoginEvent.OnDismissRequestDialog)
+            })
+        }
+
 
     }
 
