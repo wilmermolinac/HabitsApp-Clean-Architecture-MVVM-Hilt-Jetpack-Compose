@@ -8,8 +8,11 @@ import com.wamcdevs.habitsappmvvm.authentication.domain.repository.Authenticatio
 import com.wamcdevs.habitsappmvvm.authentication.domain.use_case.login.ForgotPassword
 import com.wamcdevs.habitsappmvvm.authentication.domain.use_case.login.Login
 import com.wamcdevs.habitsappmvvm.authentication.domain.use_case.login.LoginUseCase
+import com.wamcdevs.habitsappmvvm.authentication.domain.use_case.login.Signup
+import com.wamcdevs.habitsappmvvm.authentication.domain.use_case.login.SignupUseCase
 import com.wamcdevs.habitsappmvvm.authentication.domain.use_case.login.ValidateEmail
 import com.wamcdevs.habitsappmvvm.authentication.domain.use_case.login.ValidatePassword
+import com.wamcdevs.habitsappmvvm.authentication.domain.use_case.login.ValidatePasswordConfirm
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -43,6 +46,20 @@ object AuthenticationModule {
             validateEmail = ValidateEmail(emailMatcher),
             validatePassword = ValidatePassword(),
             forgotPassword = ForgotPassword(repository)
+        )
+    }
+
+    @Provides
+    @Singleton
+    fun provideSignupUseCase(
+        repository: AuthenticationRepository,
+        emailMatcher: EmailMatcher
+    ): SignupUseCase {
+        return SignupUseCase(
+            signup = Signup(repository),
+            validateEmail = ValidateEmail(emailMatcher),
+            validatePassword = ValidatePassword(),
+            validatePasswordConfirm = ValidatePasswordConfirm()
         )
     }
 }

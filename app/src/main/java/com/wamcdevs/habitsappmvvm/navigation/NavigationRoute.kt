@@ -7,5 +7,7 @@ sealed class NavigationRoute(val route:String){
 
     object Login: NavigationRoute(route = "login")
 
+    object Signup: NavigationRoute(route = "signup")
+
     object Home: NavigationRoute(route = "home")
 }

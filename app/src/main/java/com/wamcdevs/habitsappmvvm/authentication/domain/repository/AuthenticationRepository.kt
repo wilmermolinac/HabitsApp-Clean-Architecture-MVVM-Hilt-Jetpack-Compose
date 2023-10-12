@@ -7,4 +7,6 @@ interface AuthenticationRepository {
     suspend fun login(email:String, password:String):Result<Unit>
 
     suspend fun forgotPassword(email: String):Result<Unit>
+
+    suspend fun signup(email: String, password: String):Result<Unit>
 }

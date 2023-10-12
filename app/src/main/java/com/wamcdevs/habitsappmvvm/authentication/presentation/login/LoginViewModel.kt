@@ -41,7 +41,13 @@ class LoginViewModel @Inject constructor(
                 state = state.copy(password = event.input, passwordMsgError = null)
             }
 
-            LoginEvent.OnSignUp -> {}
+            LoginEvent.OnSignUp -> {
+
+                viewModelScope.launch {
+                    _uiEvent.send(UiEvent.Navigate(route = NavigationRoute.Signup.route))
+                }
+
+            }
             LoginEvent.OnLogin -> {
                 state = state.copy(isLoading = true)
                 login()

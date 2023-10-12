@@ -34,4 +34,14 @@ class AuthenticationRepositoryImpl @Inject constructor(private val firebaseAuth:
             Result.failure(e)
         }
     }
+
+    override suspend fun signup(email: String, password: String): Result<Unit> {
+        return try {
+            firebaseAuth.createUserWithEmailAndPassword(email, password).await()
+            Result.success(Unit)
+        }catch (e:Exception){
+            e.printStackTrace()
+            Result.failure(e)
+        }
+    }
 }
