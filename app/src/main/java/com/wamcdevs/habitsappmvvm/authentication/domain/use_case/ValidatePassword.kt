@@ -1,10 +1,10 @@
-package com.wamcdevs.habitsappmvvm.authentication.domain.use_case.login
+package com.wamcdevs.habitsappmvvm.authentication.domain.use_case
 
 import com.wamcdevs.habitsapp.core.util.UiText
 import com.wamcdevs.habitsappmvvm.R
 
 class ValidatePassword {
-    operator fun invoke(password:String):PasswordResult{
+    operator fun invoke(password:String): PasswordResult {
 
         if (password.length <= 5){
             return PasswordResult.Invalid(UiText.StringResource(R.string.message_error_length_password))

@@ -5,14 +5,15 @@ import com.wamcdevs.habitsappmvvm.authentication.data.matcher.EmailMatcherImpl
 import com.wamcdevs.habitsappmvvm.authentication.data.repository.AuthenticationRepositoryImpl
 import com.wamcdevs.habitsappmvvm.authentication.domain.matcher.EmailMatcher
 import com.wamcdevs.habitsappmvvm.authentication.domain.repository.AuthenticationRepository
-import com.wamcdevs.habitsappmvvm.authentication.domain.use_case.login.ForgotPassword
-import com.wamcdevs.habitsappmvvm.authentication.domain.use_case.login.Login
-import com.wamcdevs.habitsappmvvm.authentication.domain.use_case.login.LoginUseCase
-import com.wamcdevs.habitsappmvvm.authentication.domain.use_case.login.Signup
-import com.wamcdevs.habitsappmvvm.authentication.domain.use_case.login.SignupUseCase
-import com.wamcdevs.habitsappmvvm.authentication.domain.use_case.login.ValidateEmail
-import com.wamcdevs.habitsappmvvm.authentication.domain.use_case.login.ValidatePassword
-import com.wamcdevs.habitsappmvvm.authentication.domain.use_case.login.ValidatePasswordConfirm
+import com.wamcdevs.habitsappmvvm.authentication.domain.use_case.ForgotPassword
+import com.wamcdevs.habitsappmvvm.authentication.domain.use_case.GetUser
+import com.wamcdevs.habitsappmvvm.authentication.domain.use_case.Login
+import com.wamcdevs.habitsappmvvm.authentication.domain.use_case.LoginUseCase
+import com.wamcdevs.habitsappmvvm.authentication.domain.use_case.Signup
+import com.wamcdevs.habitsappmvvm.authentication.domain.use_case.SignupUseCase
+import com.wamcdevs.habitsappmvvm.authentication.domain.use_case.ValidateEmail
+import com.wamcdevs.habitsappmvvm.authentication.domain.use_case.ValidatePassword
+import com.wamcdevs.habitsappmvvm.authentication.domain.use_case.ValidatePasswordConfirm
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -45,15 +46,15 @@ object AuthenticationModule {
             login = Login(repository),
             validateEmail = ValidateEmail(emailMatcher),
             validatePassword = ValidatePassword(),
-            forgotPassword = ForgotPassword(repository)
+            forgotPassword = ForgotPassword(repository),
+            getUser = GetUser(repository)
         )
     }
 
     @Provides
     @Singleton
     fun provideSignupUseCase(
-        repository: AuthenticationRepository,
-        emailMatcher: EmailMatcher
+        repository: AuthenticationRepository, emailMatcher: EmailMatcher
     ): SignupUseCase {
         return SignupUseCase(
             signup = Signup(repository),

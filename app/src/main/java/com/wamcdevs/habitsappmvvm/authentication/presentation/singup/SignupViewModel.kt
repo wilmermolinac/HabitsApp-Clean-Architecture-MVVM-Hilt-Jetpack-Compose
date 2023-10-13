@@ -9,9 +9,9 @@ import androidx.lifecycle.viewModelScope
 import com.wamcdevs.habitsapp.core.util.UiEvent
 import com.wamcdevs.habitsapp.core.util.UiText
 import com.wamcdevs.habitsappmvvm.R
-import com.wamcdevs.habitsappmvvm.authentication.domain.use_case.login.PasswordResult
-import com.wamcdevs.habitsappmvvm.authentication.domain.use_case.login.ResultValidatePassword
-import com.wamcdevs.habitsappmvvm.authentication.domain.use_case.login.SignupUseCase
+import com.wamcdevs.habitsappmvvm.authentication.domain.use_case.PasswordResult
+import com.wamcdevs.habitsappmvvm.authentication.domain.use_case.ResultValidatePassword
+import com.wamcdevs.habitsappmvvm.authentication.domain.use_case.SignupUseCase
 import com.wamcdevs.habitsappmvvm.navigation.NavigationRoute
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext

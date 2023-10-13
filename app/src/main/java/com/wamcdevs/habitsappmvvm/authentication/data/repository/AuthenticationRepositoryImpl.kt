@@ -2,6 +2,7 @@ package com.wamcdevs.habitsappmvvm.authentication.data.repository
 
 import android.provider.ContactsContract
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.wamcdevs.habitsappmvvm.authentication.domain.repository.AuthenticationRepository
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
@@ -43,5 +44,9 @@ class AuthenticationRepositoryImpl @Inject constructor(private val firebaseAuth:
             e.printStackTrace()
             Result.failure(e)
         }
+    }
+
+    override fun getUser(): FirebaseUser? {
+        return firebaseAuth.currentUser
     }
 }

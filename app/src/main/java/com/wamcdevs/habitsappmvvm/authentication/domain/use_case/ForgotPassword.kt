@@ -1,4 +1,4 @@
-package com.wamcdevs.habitsappmvvm.authentication.domain.use_case.login
+package com.wamcdevs.habitsappmvvm.authentication.domain.use_case
 
 import com.wamcdevs.habitsappmvvm.authentication.domain.repository.AuthenticationRepository
 import javax.inject.Inject

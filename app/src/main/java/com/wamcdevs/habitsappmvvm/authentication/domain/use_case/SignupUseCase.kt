@@ -1,4 +1,4 @@
-package com.wamcdevs.habitsappmvvm.authentication.domain.use_case.login
+package com.wamcdevs.habitsappmvvm.authentication.domain.use_case
 
 data class SignupUseCase(
     val signup: Signup,

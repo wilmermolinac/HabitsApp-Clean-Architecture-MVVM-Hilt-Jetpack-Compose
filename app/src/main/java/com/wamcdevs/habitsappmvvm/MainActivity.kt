@@ -9,6 +9,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -18,6 +19,7 @@ import com.wamcdevs.habitsappmvvm.navigation.NavigationHost
 import com.wamcdevs.habitsappmvvm.navigation.NavigationRoute
 import com.wamcdevs.habitsappmvvm.ui.theme.HabitsAppMVVMTheme
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -35,6 +37,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background
                 ) {
 
+
                     navHostController = rememberNavController()
 
                     NavigationHost(
@@ -49,22 +52,20 @@ class MainActivity : ComponentActivity() {
 
     private fun getStartDestination(): NavigationRoute {
 
-        // Aqui validamos si el Onboarding se ha completado
+        //          Si es true
+        if (viewModel.isLoggedIn) {
+            // ingresamos directamente al home
+            return NavigationRoute.Home
+        }
+
         return if (viewModel.stateHasSeenOnboarding) {
-            // Si es asi nos lleva al login
+            // Aqui validamos si el Onboarding se ha completado
             NavigationRoute.Login
         } else {
-
             // De lo contrario seguimos en el Onboarding
             NavigationRoute.Onboarding
         }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    HabitsAppMVVMTheme {
 
     }
+
 }
