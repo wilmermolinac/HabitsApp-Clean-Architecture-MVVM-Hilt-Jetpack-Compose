@@ -116,6 +116,7 @@ class SignupViewModel @Inject constructor(
                     }
                     // Si fallo el registro
                     .onFailure {
+                        state = state.copy(isLoading = false)
                         val message =
                             it.message ?: UiText.StringResource(R.string.message_error_unknown)
                                 .asString(context)
